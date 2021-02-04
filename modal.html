@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando Modal</title>
+</head>
+<body>
+    <style>
+        .users {
+            display:flex;
+            justify-content: center:
+        }
+        .user {
+            min-width: 13rem;
+            padding: 2rem 1.7rem;
+            margin: 0 1rem;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+                        0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+        .user_avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        .user_name {
+            color: #424242;
+            font-size: 1.3rem;
+            margin-top: 0.7rem;
+        }
+        .user button {
+            width: 70px;
+            height: 30px;
+            color: #fff;
+            background-color: #e91e63;
+            margin-top: 1.2rem;
+            border-radius: 25px;
+        }
+        .modal {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: translateY(-50%);
+            text-align: center;
+            background: #fff;
+            width: 20rem;
+            height: 22rem;
+            border-radius: 4px;
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+                        0 15px 12px rgba(0, 0, 0, 0.22);
+        }
+        .modal .close {
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            color: #e91e63;
+            font-size: 2rem;
+            font-weight: 800;
+            transform: rotate(45deg);
+        }
+        .modal span{
+            cursor: pointer;
+        }
+
+        .modal img {
+            border-radius: 50%;
+        }
+        .modal h2 {
+            color: #212121;
+            margin: 2rem 0 1.5rem 0;
+        }
+        .modal p {
+            color: #757575;
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+
+    </style>
+    <div calss="users">
+        <div class="user">
+            <img class="user_avatar" src="luan.jpeg" alt="foto" >
+            <h2 class="user_name">Luan</h2>
+            <button onclick="abreModal()">Ver</button>
+        </div>
+    </div>
+    <div class="modal" id="modal" style="display: none">
+        <span id="close" onclick="fechaModal()">x</span>
+        <img src="luan.jpeg" class="avatar">
+        <h2 class="name">Luan Schlusen</h2>
+        <p class="email">luanschlusen@hotmail.com</p>
+        <p class="numero">959595915</p>
+    </div>
+
+    <script>
+        var modal = document.getElementById("modal");
+
+        function abreModal(nome, avatar, email, numero) {
+            modal.style.display = "block";
+            modal.getElementsByClassName("avatar")[0].src = avatar;
+            modal.getElementsByClassName("nome")[0].innerText = nome;
+            modal.getElementsByClassName("email")[0].innerHTML = email;
+            modal.getElementsByClassName("numero")[0].innerHTML = numero;
+        }
+        
+        function fechaModal() {
+            modal.style.display = "none";       
+        }
+    </script>
+</body>
+</html>
